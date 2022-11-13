@@ -31,7 +31,8 @@ public class deletar extends javax.swing.JFrame {
     this.conectar.conectaBanco(); 
   
     deletaUsuario.setCpf(txtDeletaCpf.getText());    
-try {  
+    
+    try {  
         this.conectar.conectaBanco();
         
         String txtDeletaCpf = this.txtDeletaCpf.getText();             
@@ -41,17 +42,20 @@ try {
                     + "cpf = '" + txtDeletaCpf + "'"
                 + ";"  
             );
+            
+            if(deletaUsuario.getCpf().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro ao deletar usuário!");
+               }
+             else {
+                       this.conectar.fechaBanco();
+            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso");
+                        }
         } catch (Exception e) {
             
             System.out.println("Erro ao deletar usuário " +  e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao deletar usuário");
             
-        } finally{            
-            this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso");
-            //novoCliente.limpaCliente();
-            //limparCamposCadastro();
-        }                      
+        }                     
     }
 
     
@@ -69,13 +73,14 @@ try {
     private void initComponents() {
 
         jLabel29 = new javax.swing.JLabel();
-        txtDeletaCpf = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         btnSair = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        txtDeletaCpf = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deletar usuário");
@@ -88,16 +93,6 @@ try {
         jLabel29.setText("Digite o CPF");
         getContentPane().add(jLabel29);
         jLabel29.setBounds(260, 170, 130, 40);
-
-        try {
-            txtDeletaCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtDeletaCpf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtDeletaCpf.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
-        getContentPane().add(txtDeletaCpf);
-        txtDeletaCpf.setBounds(240, 210, 170, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Document Writer.png"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -139,6 +134,14 @@ try {
         });
         getContentPane().add(btnDeletar);
         btnDeletar.setBounds(460, 460, 200, 60);
+
+        txtDeletaCpf.setFont(new java.awt.Font("Nunito SemiBold", 0, 16)); // NOI18N
+        getContentPane().add(txtDeletaCpf);
+        txtDeletaCpf.setBounds(250, 210, 220, 29);
+
+        jPanel1.setBackground(new java.awt.Color(166, 190, 196));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 700, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -194,8 +197,9 @@ try {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JFormattedTextField txtDeletaCpf;
+    private javax.swing.JTextField txtDeletaCpf;
     // End of variables declaration//GEN-END:variables
 }

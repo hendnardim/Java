@@ -94,7 +94,6 @@ try {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel29 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtConsultaCpf = new javax.swing.JFormattedTextField();
         btnSair = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
         txtPesquisarNome = new javax.swing.JTextField();
@@ -112,6 +111,8 @@ try {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        txtConsultaCpf = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pesquisar cliente");
@@ -142,16 +143,6 @@ try {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(360, 110, 50, 60);
 
-        try {
-            txtConsultaCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtConsultaCpf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtConsultaCpf.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
-        getContentPane().add(txtConsultaCpf);
-        txtConsultaCpf.setBounds(220, 160, 170, 30);
-
         btnSair.setFont(new java.awt.Font("Nunito SemiBold", 1, 24)); // NOI18N
         btnSair.setForeground(new java.awt.Color(0, 25, 37));
         btnSair.setText("Sair");
@@ -179,6 +170,7 @@ try {
         getContentPane().add(btnAtualizar);
         btnAtualizar.setBounds(460, 460, 200, 60);
 
+        txtPesquisarNome.setEditable(false);
         txtPesquisarNome.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
         txtPesquisarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +180,7 @@ try {
         getContentPane().add(txtPesquisarNome);
         txtPesquisarNome.setBounds(20, 230, 350, 30);
 
+        txtPesquisarEmail.setEditable(false);
         txtPesquisarEmail.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
         txtPesquisarEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +190,7 @@ try {
         getContentPane().add(txtPesquisarEmail);
         txtPesquisarEmail.setBounds(20, 290, 330, 30);
 
+        txtPesquisarCelular.setEditable(false);
         try {
             txtPesquisarCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
@@ -207,6 +201,7 @@ try {
         getContentPane().add(txtPesquisarCelular);
         txtPesquisarCelular.setBounds(390, 230, 190, 30);
 
+        txtPesquisarCidade.setEditable(false);
         txtPesquisarCidade.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
         txtPesquisarCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +211,7 @@ try {
         getContentPane().add(txtPesquisarCidade);
         txtPesquisarCidade.setBounds(20, 350, 430, 30);
 
+        txtPesquisarUf.setEditable(false);
         txtPesquisarUf.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
         txtPesquisarUf.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPesquisarUf.addActionListener(new java.awt.event.ActionListener() {
@@ -270,6 +266,14 @@ try {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Smartphone.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(460, 190, 60, 60);
+
+        txtConsultaCpf.setFont(new java.awt.Font("Nunito SemiBold", 0, 16)); // NOI18N
+        getContentPane().add(txtConsultaCpf);
+        txtConsultaCpf.setBounds(200, 160, 210, 29);
+
+        jPanel1.setBackground(new java.awt.Color(166, 190, 196));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 700, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -355,8 +359,9 @@ try {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JFormattedTextField txtConsultaCpf;
+    private javax.swing.JTextField txtConsultaCpf;
     private javax.swing.JFormattedTextField txtPesquisarCelular;
     private javax.swing.JTextField txtPesquisarCidade;
     private javax.swing.JTextField txtPesquisarEmail;

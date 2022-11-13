@@ -38,7 +38,7 @@ public class cadastro extends javax.swing.JFrame {
     novoUsuario.setCidade(txtCidade.getText());
     novoUsuario.setUF(txtUf.getText());  
     
-try {
+
                         
             this.conectar.insertSQL("INSERT INTO usuario ("
                     + "nome,"
@@ -55,18 +55,20 @@ try {
                     + "'" + novoUsuario.getCidade() + "',"
                     + "'" + novoUsuario.getUF() + "'"
                 + ");");
+    try {        
+             if(novoUsuario.getCpf().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário!");
+           }else {
+              this.conectar.fechaBanco();
+              JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+             }
             
         } catch (Exception e) {
             
             System.out.println("Erro ao cadastrar usuário " +  e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar usuário");
             
-        } finally{            
-            this.conectar.fechaBanco();
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
-            //novoCliente.limpaCliente();
-            //limparCamposCadastro();
-        }                      
+        }        
     }
 
 
@@ -93,8 +95,6 @@ try {
         txtUf = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtCpf = new javax.swing.JFormattedTextField();
         jLabel30 = new javax.swing.JLabel();
         txtCelular = new javax.swing.JFormattedTextField();
         jLabel31 = new javax.swing.JLabel();
@@ -110,6 +110,9 @@ try {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro");
@@ -145,25 +148,6 @@ try {
         jLabel29.setText("CPF");
         getContentPane().add(jLabel29);
         jLabel29.setBounds(400, 160, 80, 40);
-
-        txtNome.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtNome);
-        txtNome.setBounds(20, 200, 350, 30);
-
-        try {
-            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtCpf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtCpf.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
-        getContentPane().add(txtCpf);
-        txtCpf.setBounds(400, 200, 170, 30);
 
         jLabel30.setFont(new java.awt.Font("Nunito SemiBold", 1, 19)); // NOI18N
         jLabel30.setText("Nome");
@@ -264,6 +248,23 @@ try {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(90, 310, 50, 60);
 
+        txtNome.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNome);
+        txtNome.setBounds(20, 200, 350, 30);
+
+        txtCpf.setFont(new java.awt.Font("Nunito SemiBold", 0, 16)); // NOI18N
+        getContentPane().add(txtCpf);
+        txtCpf.setBounds(390, 200, 180, 29);
+
+        jPanel1.setBackground(new java.awt.Color(166, 190, 196));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 700, 600);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -271,10 +272,6 @@ try {
     private void txtUfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUfActionPerformed
-
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
@@ -294,6 +291,10 @@ try {
         // TODO add your handling code here:
         cadastraUsuario(novoUsuario);
     }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,10 +347,11 @@ try {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JFormattedTextField txtCelular;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JFormattedTextField txtCpf;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtUf;

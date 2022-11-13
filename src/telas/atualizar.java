@@ -58,7 +58,7 @@ try {
            
         } catch (Exception e) {            
             System.out.println("Erro ao consultar usuário " +  e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente");
+            JOptionPane.showMessageDialog(null, "Erro ao buscar usuário");
             
         } finally{
             txtAtualizarNome.setText(pesquisarUsuario.getNome());
@@ -116,7 +116,6 @@ try {
         jSeparator2 = new javax.swing.JSeparator();
         btnSair = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
-        txtConsultaCpf = new javax.swing.JFormattedTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAtualizar = new javax.swing.JButton();
@@ -136,6 +135,8 @@ try {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        txtConsultaCpf = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Atualizar cliente");
@@ -179,16 +180,6 @@ try {
         });
         getContentPane().add(btnPesquisar);
         btnPesquisar.setBounds(410, 160, 130, 30);
-
-        try {
-            txtConsultaCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtConsultaCpf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtConsultaCpf.setFont(new java.awt.Font("Nunito SemiBold", 1, 18)); // NOI18N
-        getContentPane().add(txtConsultaCpf);
-        txtConsultaCpf.setBounds(220, 160, 170, 30);
 
         jLabel29.setFont(new java.awt.Font("Nunito SemiBold", 1, 19)); // NOI18N
         jLabel29.setText("Digite o CPF");
@@ -306,6 +297,17 @@ try {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(540, 340, 50, 60);
 
+        txtConsultaCpf.setFont(new java.awt.Font("Nunito SemiBold", 0, 16)); // NOI18N
+        getContentPane().add(txtConsultaCpf);
+        txtConsultaCpf.setBounds(220, 160, 170, 29);
+
+        jPanel1.setBackground(new java.awt.Color(166, 190, 196));
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 600));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 700, 600);
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -392,6 +394,7 @@ atualizarUsuario(atualizarUsuario);        // TODO add your handling code here:
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JFormattedTextField txtAtualizarCelular;
@@ -399,6 +402,6 @@ atualizarUsuario(atualizarUsuario);        // TODO add your handling code here:
     private javax.swing.JTextField txtAtualizarEmail;
     private javax.swing.JTextField txtAtualizarNome;
     private javax.swing.JTextField txtAtualizarUf;
-    private javax.swing.JFormattedTextField txtConsultaCpf;
+    private javax.swing.JTextField txtConsultaCpf;
     // End of variables declaration//GEN-END:variables
 }
